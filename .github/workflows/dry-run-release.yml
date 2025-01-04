@@ -9,7 +9,7 @@ on:
 jobs:
 
    dry-run-attach-artifact-to-release:
-    uses: liquibase/build-logic/.github/workflows/extension-attach-artifact-release.yml@main
+    uses: mitchresch/build-logic/.github/workflows/extension-attach-artifact-release.yml@main
     secrets: inherit
     with:
       dry_run: true
@@ -40,7 +40,7 @@ jobs:
 
    dry-run-release-published:
     needs: dry-run-get-draft-release
-    uses: liquibase/build-logic/.github/workflows/extension-release-published.yml@main
+    uses: mitchresch/build-logic/.github/workflows/extension-release-published.yml@main
     secrets: inherit
     with:
       dry_run: true
@@ -58,8 +58,8 @@ jobs:
 
       - name: Set up Git
         run: |
-          git config user.name "liquibot"
-          git config user.email "liquibot@liquibase.org"
+          git config user.name "commanderbot"
+          git config user.email "commander@commander.org"
 
       - name: Delete liquibase dry-run tag
         if: always()

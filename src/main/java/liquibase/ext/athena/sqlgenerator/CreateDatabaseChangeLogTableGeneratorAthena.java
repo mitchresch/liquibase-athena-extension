@@ -39,7 +39,7 @@ public class CreateDatabaseChangeLogTableGeneratorAthena extends CreateDatabaseC
             StringBuilder buffer = new StringBuilder();
 
             // CREATE TABLE table_name ...
-            String tablePath = removeLastCharacter(AthenaConfiguration.getS3TableLocation(), "/") + "/" + database.getDatabaseChangeLogTableName() + "/";
+            String tablePath = removeLastCharacter(AthenaConfiguration.getS3TablesLocation(), "/") + "/" + database.getDatabaseChangeLogTableName() + "/";
             buffer.append("CREATE TABLE IF NOT EXISTS ");
             buffer.append(database.escapeTableName(database.getLiquibaseCatalogName(), database.getLiquibaseSchemaName(), database.getDatabaseChangeLogTableName()));
             buffer.append(" (ID STRING, AUTHOR STRING, FILENAME STRING, DATEEXECUTED TIMESTAMP, ORDEREXECUTED INT, EXECTYPE STRING," +

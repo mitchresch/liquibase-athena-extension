@@ -38,7 +38,7 @@ public class CreateDatabaseChangeLogLockTableGeneratorAthena extends CreateDatab
         try {
             StringBuilder buffer = new StringBuilder();
 
-            String tablePath = removeLastCharacter(AthenaConfiguration.getS3TableLocation(), "/") + "/" + database.getDatabaseChangeLogLockTableName() + "/";
+            String tablePath = removeLastCharacter(AthenaConfiguration.getS3TablesLocation(), "/") + "/" + database.getDatabaseChangeLogLockTableName() + "/";
             buffer.append("CREATE TABLE IF NOT EXISTS ");
             buffer.append(database.escapeTableName(database.getLiquibaseCatalogName(), database.getLiquibaseSchemaName(), database.getDatabaseChangeLogLockTableName()));
             buffer.append(" (ID INT, LOCKED BOOLEAN, LOCKGRANTED TIMESTAMP, LOCKEDBY STRING)");

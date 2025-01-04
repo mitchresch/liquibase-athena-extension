@@ -9,13 +9,13 @@
         <version>0.5.4</version> <!-- Replace with the desired version -->
     </parent>
 
-    <groupId>ext.liquibase</groupId>
-    <artifactId>liquibase-extension-athena</artifactId>
+    <groupId>org.liquibase.ext.athena</groupId>
+    <artifactId>liquibase-athena</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
 
-    <name>Liquibase Extension Exampla</name>
-    <description>Describe your extension here.</description>
+    <name>Liquibase Athena</name>
+    <description>Liquibase Athena Support</description>
     <url>https://docs.liquibase.com</url>
 
     <licenses>
@@ -25,19 +25,10 @@
         </license>
     </licenses>
 
-    <developers>
-        <developer>
-            <name>Mitch Resch</name>
-            <email>mresch01@gmail.com</email>
-            <organization>Mitch Resch</organization>
-            <organizationUrl>https://github.com/mitchresch</organizationUrl>
-        </developer>
-    </developers>
-
     <scm>
-        <connection>scm:git:git://github.com/liquibase/liquibase-extension-example.git</connection>
-        <developerConnection>scm:git:ssh://github.com:liquibase/liquibase-extension-example.git</developerConnection>
-        <url>https://github.com/liquibase/liquibase-extension-example</url>
+        <connection>scm:git:git://github.com/mitchresch/liquibase-athenagit</connection>
+        <developerConnection>scm:git:ssh://github.com:mitchresch/liquibase-athena.git</developerConnection>
+        <url>https://github.com/mitchresch/liquibase-athena</url>
     </scm>
 
     <properties>

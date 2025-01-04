@@ -71,7 +71,7 @@ public class CreateTableGeneratorAthena extends CreateTableGenerator {
             }
         }
 
-        String tablePath = removeLastCharacter(AthenaConfiguration.getS3TableLocation(), "/") + "/" + statement.getTableName() + "/";
+        String tablePath = removeLastCharacter(AthenaConfiguration.getS3TablesLocation(), "/") + "/" + statement.getTableName() + "/";
         buffer.append(") LOCATION '" + tablePath + "' TBLPROPERTIES ( 'table_type' = 'ICEBERG' )");
 
         String sql = buffer.toString().replaceFirst(",\\s*$", "");

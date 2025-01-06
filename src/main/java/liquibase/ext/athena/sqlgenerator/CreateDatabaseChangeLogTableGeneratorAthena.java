@@ -42,8 +42,8 @@ public class CreateDatabaseChangeLogTableGeneratorAthena extends CreateDatabaseC
             String tablePath = removeLastCharacter(AthenaConfiguration.getS3TablesLocation(), "/") + "/" + database.getDatabaseChangeLogTableName() + "/";
             buffer.append("CREATE TABLE IF NOT EXISTS ");
             buffer.append(database.escapeTableName(database.getLiquibaseCatalogName(), database.getLiquibaseSchemaName(), database.getDatabaseChangeLogTableName()));
-            buffer.append(" (ID STRING, AUTHOR STRING, FILENAME STRING, DATEEXECUTED TIMESTAMP, ORDEREXECUTED INT, EXECTYPE STRING," +
-                    "MD5SUM STRING, DESCRIPTION STRING, COMMENTS STRING, TAG STRING, LIQUIBASE STRING," +
+            buffer.append(" (ID STRING, AUTHOR STRING, FILENAME STRING, DATEEXECUTED TIMESTAMP, ORDEREXECUTED INT, EXECTYPE STRING, " +
+                    "MD5SUM STRING, DESCRIPTION STRING, COMMENTS STRING, TAG STRING, LIQUIBASE STRING, " +
                     "CONTEXTS STRING, LABELS STRING, DEPLOYMENT_ID STRING)");
             buffer.append(" LOCATION '" + tablePath + "'");
             buffer.append(" TBLPROPERTIES ( 'table_type' = 'ICEBERG')");

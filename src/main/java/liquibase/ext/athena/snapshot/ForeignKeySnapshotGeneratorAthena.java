@@ -28,7 +28,6 @@ public class ForeignKeySnapshotGeneratorAthena extends ForeignKeySnapshotGenerat
 
     @Override
     protected void addTo(DatabaseObject foundObject, DatabaseSnapshot snapshot) throws DatabaseException, InvalidExampleException {
-
     }
 
     @Override

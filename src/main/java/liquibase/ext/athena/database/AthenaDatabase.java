@@ -10,11 +10,19 @@ import liquibase.structure.core.Table;
 import liquibase.structure.core.Column;
 import liquibase.structure.core.View;
 import liquibase.ext.athena.configuration.AthenaConfiguration;
+import liquibase.change.core.CreateTableChange;
+import liquibase.change.core.AddColumnChange;
+import liquibase.Scope;
+import liquibase.sql.visitor.SqlVisitor;
+import liquibase.exception.LiquibaseException;
+import liquibase.change.Change;
+import liquibase.changelog.DatabaseChangeLog;
 
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.List;
 
 public class AthenaDatabase extends AbstractJdbcDatabase {
 
@@ -210,5 +218,15 @@ public class AthenaDatabase extends AbstractJdbcDatabase {
     @Override
     public boolean supportsTablespaces() {
         return false;
+    }
+
+    @Override
+    public void executeStatements(final Change change, DatabaseChangeLog changeLog, final List<SqlVisitor> sqlVisitors) throws LiquibaseException {
+        if (change instanceof CreateTableChange || change instanceof AddColumnChange) {
+            super.executeStatements(change, changeLog, sqlVisitors);
+        } else {
+            Scope.getCurrentScope().getLog(this.getClass()).warning("Change type " + change.getClass().getName() + " is not supported by AthenaDatabase. Ignoring.");
+        }
+        
     }
 }

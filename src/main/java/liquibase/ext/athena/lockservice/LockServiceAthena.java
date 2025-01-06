@@ -1,4 +1,4 @@
-package liquibae.ext.athena.lockservice;
+package liquibase.ext.athena.lockservice;
 
 import liquibase.lockservice.StandardLockService;
 import liquibase.database.Database;

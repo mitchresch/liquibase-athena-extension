@@ -1,14 +1,14 @@
 package liquibase.ext.athena.lockservice;
 
-import liquibase.lockservice.StandardLockService;
-import liquibase.database.Database;
-import liquibase.ext.athena.database.AthenaDatabase;
 import liquibase.Scope;
-import liquibase.executor.Executor;
-import liquibase.executor.ExecutorService;
-import liquibase.statement.core.CreateDatabaseChangeLogLockTableStatement;
+import liquibase.database.Database;
 import liquibase.database.ObjectQuotingStrategy;
 import liquibase.exception.DatabaseException;
+import liquibase.executor.Executor;
+import liquibase.executor.ExecutorService;
+import liquibase.lockservice.StandardLockService;
+import liquibase.statement.core.CreateDatabaseChangeLogLockTableStatement;
+import liquibase.ext.athena.database.AthenaDatabase;
 
 public class LockServiceAthena extends StandardLockService {
         

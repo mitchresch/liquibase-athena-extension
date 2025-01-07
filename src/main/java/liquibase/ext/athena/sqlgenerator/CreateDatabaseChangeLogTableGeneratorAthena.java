@@ -1,18 +1,19 @@
 package liquibase.ext.athena.sqlgenerator;
 
 import liquibase.database.Database;
-import liquibase.ext.athena.database.AthenaDatabase;
+import liquibase.database.ObjectQuotingStrategy;
+import liquibase.exception.ValidationErrors;
 import liquibase.sql.Sql;
 import liquibase.sql.UnparsedSql;
-import liquibase.sqlgenerator.core.AbstractSqlGenerator;
-import liquibase.statement.core.CreateDatabaseChangeLogTableStatement;
 import liquibase.sqlgenerator.SqlGeneratorChain;
-import liquibase.exception.ValidationErrors;
-import liquibase.database.ObjectQuotingStrategy;
+import liquibase.sqlgenerator.core.AbstractSqlGenerator;
+import liquibase.sqlgenerator.core.CreateDatabaseChangeLogTableGenerator;
+import liquibase.statement.core.CreateDatabaseChangeLogTableStatement;
 import liquibase.structure.core.Table;
 import liquibase.structure.core.Relation;
+import liquibase.ext.athena.database.AthenaDatabase;
 import liquibase.ext.athena.configuration.AthenaConfiguration;
-import liquibase.sqlgenerator.core.CreateDatabaseChangeLogTableGenerator;
+
 
 public class CreateDatabaseChangeLogTableGeneratorAthena extends CreateDatabaseChangeLogTableGenerator {
     @Override

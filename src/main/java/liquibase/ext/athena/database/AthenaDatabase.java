@@ -16,13 +16,18 @@ import liquibase.Scope;
 import liquibase.sql.visitor.SqlVisitor;
 import liquibase.exception.LiquibaseException;
 import liquibase.change.Change;
+import liquibase.change.AbstractChange;
 import liquibase.changelog.DatabaseChangeLog;
+import liquibase.change.core.RawSQLChange;
+import liquibase.change.ChangeMetaData;
+import liquibase.change.ChangeFactory;
 
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.List;
+import java.util.ArrayList;
 
 public class AthenaDatabase extends AbstractJdbcDatabase {
 
@@ -222,11 +227,46 @@ public class AthenaDatabase extends AbstractJdbcDatabase {
 
     @Override
     public void executeStatements(final Change change, DatabaseChangeLog changeLog, final List<SqlVisitor> sqlVisitors) throws LiquibaseException {
-        if (change instanceof CreateTableChange || change instanceof AddColumnChange) {
-            super.executeStatements(change, changeLog, sqlVisitors);
+       
+        // ArrayList<String> supportedChanges = new ArrayList<String>();
+
+        // supportedChanges.addAll(Arrays.asList(
+        //     "addColumn",
+        //     "createTable",
+        //     "createView",
+        //     "dropColumn",
+        //     "dropTable",
+        //     "dropView",
+        //     "renameColumn",
+        //     "renameTable",
+        //     "renameView",
+        //     "setColumnRemarks",
+        //     "setTableRemarks",
+        //     "sql"
+        // ));
+
+        ArrayList<Change> supportedChanges = new ArrayList<>();
+        supportedChanges.addAll(Arrays.asList(
+            new AddColumnChange(),
+            new CreateTableChange(),
+            new RawSQLChange()
+        ));
+
+        boolean run = false;
+
+       if (AthenaConfiguration.getS3SkipUnsupported()) {
+            for (Change supportedChange : supportedChanges) {
+                if (change.getClass() == supportedChange.getClass()) {
+                    run = true;
+                }
+            }
+            if (run) {
+                super.executeStatements(change, changeLog, sqlVisitors);
+            } else {
+                Scope.getCurrentScope().getLog(this.getClass()).warning("Change type " + change.getClass().getName() + " is not supported by AthenaDatabase. Ignoring.");
+            }
         } else {
-            Scope.getCurrentScope().getLog(this.getClass()).warning("Change type " + change.getClass().getName() + " is not supported by AthenaDatabase. Ignoring.");
+            super.executeStatements(change, changeLog, sqlVisitors);
         }
-        
     }
 }

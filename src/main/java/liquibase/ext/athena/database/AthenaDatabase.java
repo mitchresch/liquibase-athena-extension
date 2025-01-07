@@ -256,6 +256,7 @@ public class AthenaDatabase extends AbstractJdbcDatabase {
 
        if (AthenaConfiguration.getS3SkipUnsupported()) {
             for (Change supportedChange : supportedChanges) {
+                Scope.getCurrentScope().getLog(this.getClass()).info("Checking type " + change.getClass() + " Against " + supportedChange.getClass());
                 if (change.getClass() == supportedChange.getClass()) {
                     run = true;
                 }

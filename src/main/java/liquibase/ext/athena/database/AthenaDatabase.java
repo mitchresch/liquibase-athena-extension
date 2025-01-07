@@ -28,6 +28,13 @@ import liquibase.change.core.RenameTableChange;
 import liquibase.change.core.RenameViewChange;
 import liquibase.change.core.SetColumnRemarksChange;
 import liquibase.change.core.SetTableRemarksChange;
+import liquibase.ext.athena.change.SetTablePropertiesChange;
+import liquibase.ext.athena.change.AddPartitionChange;
+import liquibase.ext.athena.change.ChangeColumnChange;
+import liquibase.ext.athena.change.DropPartitionChange;
+import liquibase.ext.athena.change.RenamePartitionChange;
+import liquibase.ext.athena.change.ReplaceColumnsChange;
+import liquibase.ext.athena.change.SetLocationChange;
 
 
 
@@ -250,7 +257,14 @@ public class AthenaDatabase extends AbstractJdbcDatabase {
             new RenameViewChange(),
             new SetColumnRemarksChange(),
             new SetTableRemarksChange(),
-            new RawSQLChange()
+            new RawSQLChange(),
+            new AddPartitionChange(),
+            new ChangeColumnChange(),
+            new DropPartitionChange(),
+            new RenamePartitionChange(),
+            new ReplaceColumnsChange(),
+            new SetLocationChange(),
+            new SetTablePropertiesChange()
         ));
 
         boolean run = false;

@@ -245,28 +245,29 @@ public class AthenaDatabase extends AbstractJdbcDatabase {
         //     "sql"
         // ));
 
-        ArrayList<Change> supportedChanges = new ArrayList<>();
-        supportedChanges.addAll(Arrays.asList(
-            new AddColumnChange(),
-            new CreateTableChange(),
-            new RawSQLChange()
-        ));
+    //     ArrayList<Change> supportedChanges = new ArrayList<>();
+    //     supportedChanges.addAll(Arrays.asList(
+    //         new AddColumnChange(),
+    //         new CreateTableChange(),
+    //         new RawSQLChange()
+    //     ));
 
-        boolean run = false;
+    //     boolean run = false;
 
-       if (AthenaConfiguration.getS3SkipUnsupported()) {
-            for (Change supportedChange : supportedChanges) {
-                if (change.getClass() == supportedChange.getClass()) {
-                    run = true;
-                }
-            }
-            if (run) {
-                super.executeStatements(change, changeLog, sqlVisitors);
-            } else {
-                Scope.getCurrentScope().getLog(this.getClass()).warning("Change type " + change.getClass().getName() + " is not supported by AthenaDatabase. Ignoring.");
-            }
-        } else {
-            super.executeStatements(change, changeLog, sqlVisitors);
-        }
+    //    if (AthenaConfiguration.getS3SkipUnsupported()) {
+    //         for (Change supportedChange : supportedChanges) {
+    //             if (change.getClass() == supportedChange.getClass()) {
+    //                 run = true;
+    //             }
+    //         }
+    //         if (run) {
+    //             super.executeStatements(change, changeLog, sqlVisitors);
+    //         } else {
+    //             Scope.getCurrentScope().getLog(this.getClass()).warning("Change type " + change.getClass().getName() + " is not supported by AthenaDatabase. Ignoring.");
+    //         }
+    //     } else {
+    //         super.executeStatements(change, changeLog, sqlVisitors);
+    //     }
+        super.executeStatements(change, changeLog, sqlVisitors);
     }
 }

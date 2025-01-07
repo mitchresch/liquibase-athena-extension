@@ -19,8 +19,17 @@ import liquibase.change.Change;
 import liquibase.change.AbstractChange;
 import liquibase.changelog.DatabaseChangeLog;
 import liquibase.change.core.RawSQLChange;
-import liquibase.change.ChangeMetaData;
-import liquibase.change.ChangeFactory;
+import liquibase.change.core.CreateViewChange;
+import liquibase.change.core.DropColumnChange;
+import liquibase.change.core.DropTableChange;
+import liquibase.change.core.DropViewChange;
+import liquibase.change.core.RenameColumnChange;
+import liquibase.change.core.RenameTableChange;
+import liquibase.change.core.RenameViewChange;
+import liquibase.change.core.SetColumnRemarksChange;
+import liquibase.change.core.SetTableRemarksChange;
+
+
 
 import java.util.Arrays;
 import java.util.Locale;
@@ -227,28 +236,20 @@ public class AthenaDatabase extends AbstractJdbcDatabase {
 
     @Override
     public void executeStatements(final Change change, DatabaseChangeLog changeLog, final List<SqlVisitor> sqlVisitors) throws LiquibaseException {
-       
-        // ArrayList<String> supportedChanges = new ArrayList<String>();
-
-        // supportedChanges.addAll(Arrays.asList(
-        //     "addColumn",
-        //     "createTable",
-        //     "createView",
-        //     "dropColumn",
-        //     "dropTable",
-        //     "dropView",
-        //     "renameColumn",
-        //     "renameTable",
-        //     "renameView",
-        //     "setColumnRemarks",
-        //     "setTableRemarks",
-        //     "sql"
-        // ));
 
         ArrayList<Change> supportedChanges = new ArrayList<>();
         supportedChanges.addAll(Arrays.asList(
             new AddColumnChange(),
             new CreateTableChange(),
+            new CreateViewChange(),
+            new DropColumnChange(),
+            new DropTableChange(),
+            new DropViewChange(),
+            new RenameColumnChange(),
+            new RenameTableChange(),
+            new RenameViewChange(),
+            new SetColumnRemarksChange(),
+            new SetTableRemarksChange(),
             new RawSQLChange()
         ));
 
@@ -256,7 +257,6 @@ public class AthenaDatabase extends AbstractJdbcDatabase {
 
        if (AthenaConfiguration.getS3SkipUnsupported()) {
             for (Change supportedChange : supportedChanges) {
-                Scope.getCurrentScope().getLog(this.getClass()).info("Checking type " + change.getClass() + " Against " + supportedChange.getClass());
                 if (change.getClass() == supportedChange.getClass()) {
                     run = true;
                 }

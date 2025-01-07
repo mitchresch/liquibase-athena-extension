@@ -25,6 +25,6 @@ public class AthenaConfiguration implements AutoloadedConfigurations {
     }
 
     public static Boolean getS3SkipUnsupported() {
-        return S3_SKIP_UNSUPPORTED.getCurrentValue() || false;
+        return S3_SKIP_UNSUPPORTED.getCurrentValue() != null ? S3_SKIP_UNSUPPORTED.getCurrentValue() : false;
     }
 }

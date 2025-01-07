@@ -1,7 +1,7 @@
 liquibase.ext.athena.change.AddPartitionChange
 liquibase.ext.athena.change.ChangeColumnChange
-liquibasee.ext.athena.change.DropPartitionChange
-liquibase.ext.athena.change.RenameParitionChange
+liquibase.ext.athena.change.DropPartitionChange
+liquibase.ext.athena.change.RenamePartitionChange
 liquibase.ext.athena.change.ReplaceColumnsChange
 liquibase.ext.athena.change.SetLocationChange
 liquibase.ext.athena.change.SetTablePropertiesChange

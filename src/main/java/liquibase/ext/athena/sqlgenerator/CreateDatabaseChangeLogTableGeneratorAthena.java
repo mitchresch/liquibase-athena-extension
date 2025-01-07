@@ -47,7 +47,7 @@ public class CreateDatabaseChangeLogTableGeneratorAthena extends CreateDatabaseC
                     "MD5SUM STRING, DESCRIPTION STRING, COMMENTS STRING, TAG STRING, LIQUIBASE STRING, " +
                     "CONTEXTS STRING, LABELS STRING, DEPLOYMENT_ID STRING)");
             buffer.append(" LOCATION '" + tablePath + "'");
-            buffer.append(" TBLPROPERTIES ( 'table_type' = 'ICEBERG')");
+            buffer.append(" TBLPROPERTIES ( 'table_type' = 'ICEBERG' )");
             
             String sql = buffer.toString().replaceFirst(",\\s*$", "");
 

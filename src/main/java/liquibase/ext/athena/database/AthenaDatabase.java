@@ -271,6 +271,7 @@ public class AthenaDatabase extends AbstractJdbcDatabase {
             for (Change supportedChange : supportedChanges) {
                 if (change.getClass() == supportedChange.getClass()) {
                     run = true;
+                    break;
                 }
             }
             if (run) {

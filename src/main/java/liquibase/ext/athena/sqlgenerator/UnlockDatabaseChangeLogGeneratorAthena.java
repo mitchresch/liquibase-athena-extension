@@ -12,7 +12,6 @@ import liquibase.sqlgenerator.core.UnlockDatabaseChangeLogGenerator;
 import liquibase.statement.DatabaseFunction;
 import liquibase.statement.core.UnlockDatabaseChangeLogStatement;
 import liquibase.statement.core.UpdateStatement;
-import liquibase.util.NetUtil;
 import liquibase.ext.athena.database.AthenaDatabase;
 
 public class UnlockDatabaseChangeLogGeneratorAthena extends UnlockDatabaseChangeLogGenerator {

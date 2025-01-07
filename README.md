@@ -1,10 +1,7 @@
-# liquibase-extension-example
-Example repository for creating your own Liquibase CORE and Liquibase PRO extensions
+# liquibase-athena
+Liquibase Athena support
 
-### Modify test.yml as per your requirement
+## Usage
 
-* OSS-Extension : use the below reusable workflow block :
-  ```uses: liquibase/build-logic/.github/workflows/os-extension-test.yml@v0.5.3```
-
-* PRO-Extension : use the below reusable workflow block :  
-  ```uses: liquibase/build-logic/.github/workflows/pro-extension-test.yml@v0.5.5```
+1. Set `liquibase.athena.liquibaseS3TablesLocation` to S3 bucket/path.
+2. Download (Athena driver)[https://downloads.athena.us-east-1.amazonaws.com/drivers/JDBC/3.3.0/athena-jdbc-3.3.0-with-dependencies.jar] and put in `liquibase/lib` directory.

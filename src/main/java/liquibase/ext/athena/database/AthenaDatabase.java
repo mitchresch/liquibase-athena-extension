@@ -255,7 +255,6 @@ public class AthenaDatabase extends AbstractJdbcDatabase {
             new RenameViewChange(),
             new SetColumnRemarksChange(),
             new SetTableRemarksChange(),
-<<<<<<< HEAD
             new RawSQLChange(),
             new AddPartitionChange(),
             new ChangeColumnChange(),
@@ -264,9 +263,6 @@ public class AthenaDatabase extends AbstractJdbcDatabase {
             new ReplaceColumnsChange(),
             new SetLocationChange(),
             new SetTablePropertiesChange()
-=======
-            new RawSQLChange()
->>>>>>> 801c3a0c2e063895162a70a0c6cf2d82c9764335
         ));
 
         boolean run = false;

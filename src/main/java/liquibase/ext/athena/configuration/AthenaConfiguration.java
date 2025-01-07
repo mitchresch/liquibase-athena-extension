@@ -6,7 +6,7 @@ import liquibase.configuration.AutoloadedConfigurations;
 public class AthenaConfiguration implements AutoloadedConfigurations {
 
     public static final ConfigurationDefinition<String> LIQUIBASE_S3_TABLES_LOCATION;
-    public static final ConfigurationDefinition<Boolean> S3_SKIP_UNSUPPORTED;
+    public static final ConfigurationDefinition<Boolean> SKIP_UNSUPPORTED;
 
     static {
         ConfigurationDefinition.Builder builder = new ConfigurationDefinition.Builder("liquibase.athena");
@@ -15,7 +15,7 @@ public class AthenaConfiguration implements AutoloadedConfigurations {
             .setDescription("S3 Location where Iceberg Tables will be stored")
             .build();
         
-        S3_SKIP_UNSUPPORTED = builder.define("s3SkipUnsupported", Boolean.class)
+        SKIP_UNSUPPORTED = builder.define("skipUnsupported", Boolean.class)
             .setDescription("Whether or not to skip unsupported changes.")
             .build();
     }
@@ -24,7 +24,7 @@ public class AthenaConfiguration implements AutoloadedConfigurations {
         return LIQUIBASE_S3_TABLES_LOCATION.getCurrentValue();
     }
 
-    public static Boolean getS3SkipUnsupported() {
-        return S3_SKIP_UNSUPPORTED.getCurrentValue() != null ? S3_SKIP_UNSUPPORTED.getCurrentValue() : false;
+    public static Boolean getSkipUnsupported() {
+        return SKIP_UNSUPPORTED.getCurrentValue() != null ? SKIP_UNSUPPORTED.getCurrentValue() : false;
     }
 }

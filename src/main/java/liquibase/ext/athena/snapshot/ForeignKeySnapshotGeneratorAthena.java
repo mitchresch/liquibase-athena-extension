@@ -1,10 +1,10 @@
 package liquibase.ext.athena.snapshot;
 
 import liquibase.database.Database;
-import liquibase.snapshot.jvm.ForeignKeySnapshotGenerator;
 import liquibase.exception.DatabaseException;
 import liquibase.snapshot.DatabaseSnapshot;
 import liquibase.snapshot.InvalidExampleException;
+import liquibase.snapshot.jvm.ForeignKeySnapshotGenerator;
 import liquibase.structure.DatabaseObject;
 import liquibase.ext.athena.database.AthenaDatabase;
 

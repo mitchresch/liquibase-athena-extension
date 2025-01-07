@@ -1,16 +1,15 @@
 package liquibase.ext.athena.sqlgenerator;
 
-import liquibase.ext.athena.database.AthenaDatabase;
-
 import liquibase.Scope;
 import liquibase.database.Database;
-import liquibase.sqlgenerator.core.CreateTableGenerator;
 import liquibase.sql.Sql;
 import liquibase.sql.UnparsedSql;
+import liquibase.sqlgenerator.core.CreateTableGenerator;
 import liquibase.sqlgenerator.SqlGeneratorChain;
 import liquibase.statement.core.CreateTableStatement;
 import liquibase.structure.core.Schema;
 import liquibase.structure.core.Table;
+import liquibase.ext.athena.database.AthenaDatabase;
 import liquibase.ext.athena.configuration.AthenaConfiguration;
 
 import java.util.Iterator;

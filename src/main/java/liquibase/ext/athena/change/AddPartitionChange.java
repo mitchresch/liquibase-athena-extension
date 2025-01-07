@@ -1,12 +1,11 @@
 package liquibase.ext.athena.change;
 
 import liquibase.change.AbstractChange;
-import liquibase.database.Database;
-import liquibase.ext.athena.database.AthenaDatabase;
 import liquibase.change.ChangeMetaData;
 import liquibase.change.DatabaseChange;
-import liquibase.change.AbstractChange;
+import liquibase.database.Database;
 import liquibase.statement.SqlStatement;
+import liquibase.ext.athena.database.AthenaDatabase;
 
 @DatabaseChange(name="addPartition",
         description = "Add a partition to an existing table",

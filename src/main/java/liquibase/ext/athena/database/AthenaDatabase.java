@@ -1,33 +1,32 @@
 package liquibase.ext.athena.database;
 
-import liquibase.database.AbstractJdbcDatabase;
-import liquibase.exception.DatabaseException;
-import liquibase.structure.DatabaseObject;
 import liquibase.CatalogAndSchema;
-import liquibase.database.DatabaseConnection;
-import liquibase.structure.core.Schema;
-import liquibase.structure.core.Table;
-import liquibase.structure.core.Column;
-import liquibase.structure.core.View;
-import liquibase.ext.athena.configuration.AthenaConfiguration;
-import liquibase.change.core.CreateTableChange;
-import liquibase.change.core.AddColumnChange;
 import liquibase.Scope;
-import liquibase.sql.visitor.SqlVisitor;
-import liquibase.exception.LiquibaseException;
 import liquibase.change.Change;
 import liquibase.change.AbstractChange;
+import liquibase.change.core.AddColumnChange;
 import liquibase.changelog.DatabaseChangeLog;
-import liquibase.change.core.RawSQLChange;
+import liquibase.change.core.CreateTableChange;
 import liquibase.change.core.CreateViewChange;
 import liquibase.change.core.DropColumnChange;
 import liquibase.change.core.DropTableChange;
 import liquibase.change.core.DropViewChange;
+import liquibase.change.core.RawSQLChange;
 import liquibase.change.core.RenameColumnChange;
 import liquibase.change.core.RenameTableChange;
 import liquibase.change.core.RenameViewChange;
 import liquibase.change.core.SetColumnRemarksChange;
 import liquibase.change.core.SetTableRemarksChange;
+import liquibase.database.AbstractJdbcDatabase;
+import liquibase.database.DatabaseConnection;
+import liquibase.exception.DatabaseException;
+import liquibase.exception.LiquibaseException;
+import liquibase.sql.visitor.SqlVisitor;
+import liquibase.structure.DatabaseObject;
+import liquibase.structure.core.Column;
+import liquibase.structure.core.Schema;
+import liquibase.structure.core.Table;
+import liquibase.structure.core.View;
 import liquibase.ext.athena.change.SetTablePropertiesChange;
 import liquibase.ext.athena.change.AddPartitionChange;
 import liquibase.ext.athena.change.ChangeColumnChange;
@@ -35,8 +34,7 @@ import liquibase.ext.athena.change.DropPartitionChange;
 import liquibase.ext.athena.change.RenamePartitionChange;
 import liquibase.ext.athena.change.ReplaceColumnsChange;
 import liquibase.ext.athena.change.SetLocationChange;
-
-
+import liquibase.ext.athena.configuration.AthenaConfiguration;
 
 import java.util.Arrays;
 import java.util.Locale;

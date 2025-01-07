@@ -1,14 +1,14 @@
 package liquibase.ext.athena.sqlgenerator;
 
-import liquibase.sqlgenerator.core.LockDatabaseChangeLogGenerator;
 import liquibase.database.Database;
-import liquibase.database.ObjectQuotingStrategy;
 import liquibase.datatype.DataTypeFactory;
+import liquibase.database.ObjectQuotingStrategy;
 import liquibase.exception.UnexpectedLiquibaseException;
 import liquibase.exception.ValidationErrors;
 import liquibase.sql.Sql;
 import liquibase.sqlgenerator.SqlGeneratorChain;
 import liquibase.sqlgenerator.SqlGeneratorFactory;
+import liquibase.sqlgenerator.core.LockDatabaseChangeLogGenerator;
 import liquibase.statement.DatabaseFunction;
 import liquibase.statement.core.LockDatabaseChangeLogStatement;
 import liquibase.statement.core.UpdateStatement;

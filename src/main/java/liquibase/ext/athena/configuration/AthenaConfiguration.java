@@ -1,7 +1,7 @@
 package liquibase.ext.athena.configuration;
 
-import liquibase.configuration.ConfigurationDefinition;
 import liquibase.configuration.AutoloadedConfigurations;
+import liquibase.configuration.ConfigurationDefinition;
 
 public class AthenaConfiguration implements AutoloadedConfigurations {
 
